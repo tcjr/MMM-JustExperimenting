@@ -1,31 +1,64 @@
 import css from "@eslint/css"
-import { defineConfig } from "eslint/config"
+import { defineConfig } from "eslint/config";
 import globals from "globals"
 import js from "@eslint/js"
 import markdown from "@eslint/markdown"
-import stylistic from "@stylistic/eslint-plugin"
+import eslintConfigPrettier from 'eslint-config-prettier';
+import n from 'eslint-plugin-n';
 
 export default defineConfig([
-  { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"] },
+  eslintConfigPrettier,
+  /**
+   * https://eslint.org/docs/latest/use/configure/configuration-files#configuring-linter-options
+   */
   {
-    files: ["**/*.js", "**/*.mjs"],
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
+    },
+  },
+   { 
+    files: ["**/*.css"], 
+    plugins: { css }, 
+   language: "css/css", 
+   extends: ["css/recommended"] },
+
+  {
+    files: ['**/*.js'],
+    ...js.configs.recommended,
+
+    plugins: {
+      n,
+    },
     languageOptions: {
-      ecmaVersion: "latest",
+      sourceType: 'script',
+      ecmaVersion: 'latest',
       globals: {
-        ...globals.browser,
         ...globals.node,
-        Log: "readonly",
-        Module: "readonly",
+        ...globals.browser,
+         Log: "readonly",
+         Module: "readonly",
+      }
+    },
+  },
+
+    {
+    files: ['**/*.mjs'],
+    plugins: {
+      n,
+    },
+
+    languageOptions: {
+      sourceType: 'module',
+      ecmaVersion: 'latest',
+      globals: {
+        ...globals.node,
       },
     },
-    plugins: { js, stylistic },
-    extends: ["js/recommended", "stylistic/recommended"],
-    rules: {
-      "@stylistic/brace-style": ["error", "1tbs", { allowSingleLine: true }],
-      "@stylistic/comma-dangle": ["error", "only-multiline"],
-      "@stylistic/max-statements-per-line": ["error", { max: 2 }],
-      "@stylistic/quotes": ["error", "double"]
-    }
   },
-  { files: ["**/*.md"], plugins: { markdown }, language: "markdown/gfm", extends: ["markdown/recommended"] },
-])
+   { 
+    files: ["**/*.md"], 
+    plugins: { markdown }, 
+    language: "markdown/gfm", 
+    extends: ["markdown/recommended"] },
+
+]);
