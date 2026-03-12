@@ -4,9 +4,7 @@ Use this template for creating new MagicMirror² modules.
 
 See the [wiki page](https://github.com/Dennis-Rosenbaum/MMM-JustExperimenting/wiki) for an in depth overview of how to get started.
 
-# MMM-JustExperimenting
-
-_MMM-JustExperimenting_ is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays ... [Module description]
+_MMM-JustExperimenting_ is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that is just trying out stuff.
 
 ## Screenshot
 

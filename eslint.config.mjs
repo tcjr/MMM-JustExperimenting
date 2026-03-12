@@ -1,8 +1,8 @@
-import css from "@eslint/css"
-import { defineConfig } from "eslint/config";
-import globals from "globals"
-import js from "@eslint/js"
-import markdown from "@eslint/markdown"
+import css from '@eslint/css';
+import { defineConfig } from 'eslint/config';
+import globals from 'globals';
+import js from '@eslint/js';
+import markdown from '@eslint/markdown';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import n from 'eslint-plugin-n';
 
@@ -16,11 +16,12 @@ export default defineConfig([
       reportUnusedDisableDirectives: 'error',
     },
   },
-   { 
-    files: ["**/*.css"], 
-    plugins: { css }, 
-   language: "css/css", 
-   extends: ["css/recommended"] },
+  {
+    files: ['**/*.css'],
+    plugins: { css },
+    language: 'css/css',
+    extends: ['css/recommended'],
+  },
 
   {
     files: ['**/*.js'],
@@ -35,13 +36,13 @@ export default defineConfig([
       globals: {
         ...globals.node,
         ...globals.browser,
-         Log: "readonly",
-         Module: "readonly",
-      }
+        Log: 'readonly',
+        Module: 'readonly',
+      },
     },
   },
 
-    {
+  {
     files: ['**/*.mjs'],
     plugins: {
       n,
@@ -55,10 +56,10 @@ export default defineConfig([
       },
     },
   },
-   { 
-    files: ["**/*.md"], 
-    plugins: { markdown }, 
-    language: "markdown/gfm", 
-    extends: ["markdown/recommended"] },
-
+  {
+    files: ['**/*.md'],
+    plugins: { markdown },
+    language: 'markdown/gfm',
+    extends: ['markdown/recommended'],
+  },
 ]);
