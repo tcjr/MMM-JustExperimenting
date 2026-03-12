@@ -15,6 +15,7 @@ Module.register('MMM-JustExperimenting', {
    */
   start() {
     this.templateContent = this.config.exampleContent;
+    this.keepGrowing = [this.config.exampleContent || 'howdy'];
 
     // set timeout for next random text
     setInterval(() => this.addRandomText(), 3000);
@@ -29,7 +30,11 @@ Module.register('MMM-JustExperimenting', {
    */
   socketNotificationReceived: function (notification, payload) {
     if (notification === 'EXAMPLE_NOTIFICATION') {
-      this.templateContent = `${this.config.exampleContent} ${payload.text}`;
+      // this.templateContent = `${this.config.exampleContent} ${payload.text}<br>${payload.text}`;
+      this.keepGrowing.push(payload.text);
+      // don't let it grow bigger than 10
+      this.keepGrowing = this.keepGrowing.slice(-10);
+      this.templateContent = this.keepGrowing.join('<br>');
       this.updateDom();
     }
   },
