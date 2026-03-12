@@ -1,15 +1,16 @@
-# MMM-Template
+# MMM-JustExperimenting
+
 Use this template for creating new MagicMirror² modules.
 
-See the [wiki page](https://github.com/Dennis-Rosenbaum/MMM-Template/wiki) for an in depth overview of how to get started.
+See the [wiki page](https://github.com/Dennis-Rosenbaum/MMM-JustExperimenting/wiki) for an in depth overview of how to get started.
 
-# MMM-Template
+# MMM-JustExperimenting
 
-*MMM-Template* is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays ... [Module description]
+_MMM-JustExperimenting_ is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays ... [Module description]
 
 ## Screenshot
 
-![Example of MMM-Template](./example_1.png)
+![Example of MMM-JustExperimenting](./example_1.png)
 
 ## Installation
 
@@ -27,7 +28,7 @@ git clone [GitHub url]
 Go to the module directory and pull the latest changes:
 
 ```bash
-cd ~/MagicMirror/modules/MMM-Template
+cd ~/MagicMirror/modules/MMM-JustExperimenting
 git pull
 ```
 
@@ -41,7 +42,7 @@ Minimal configuration to use the module:
 
 ```js
     {
-        module: 'MMM-Template',
+        module: 'MMM-JustExperimenting',
         position: 'lower_third'
     },
 ```
@@ -50,7 +51,7 @@ Configuration with all options:
 
 ```js
     {
-        module: 'MMM-Template',
+        module: 'MMM-JustExperimenting',
         position: 'lower_third',
         config: {
             exampleContent: 'Welcome world'
@@ -60,15 +61,15 @@ Configuration with all options:
 
 ### Configuration options
 
-Option|Possible values|Default|Description
-------|------|------|-----------
-`exampleContent`|`string`|not available|The content to show on the page
+| Option           | Possible values | Default       | Description                     |
+| ---------------- | --------------- | ------------- | ------------------------------- |
+| `exampleContent` | `string`        | not available | The content to show on the page |
 
 ## Sending notifications to the module
 
-Notification|Description
-------|-----------
-`TEMPLATE_RANDOM_TEXT`|Payload must contain the text that needs to be shown on this module
+| Notification           | Description                                                         |
+| ---------------------- | ------------------------------------------------------------------- |
+| `TEMPLATE_RANDOM_TEXT` | Payload must contain the text that needs to be shown on this module |
 
 ## Developer commands
 

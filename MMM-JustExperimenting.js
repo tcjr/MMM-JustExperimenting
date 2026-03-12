@@ -1,24 +1,23 @@
-Module.register("MMM-Template", {
-
+Module.register('MMM-JustExperimenting', {
   defaults: {
-    exampleContent: ""
+    exampleContent: '',
   },
 
   /**
    * Apply the default styles.
    */
   getStyles() {
-    return ["template.css"]
+    return ['justexperimenting.css'];
   },
 
   /**
    * Pseudo-constructor for our module. Initialize stuff here.
    */
   start() {
-    this.templateContent = this.config.exampleContent
+    this.templateContent = this.config.exampleContent;
 
     // set timeout for next random text
-    setInterval(() => this.addRandomText(), 3000)
+    setInterval(() => this.addRandomText(), 3000);
   },
 
   /**
@@ -29,9 +28,9 @@ Module.register("MMM-Template", {
    * @param {any} payload - The payload data`returned by the node helper.
    */
   socketNotificationReceived: function (notification, payload) {
-    if (notification === "EXAMPLE_NOTIFICATION") {
-      this.templateContent = `${this.config.exampleContent} ${payload.text}`
-      this.updateDom()
+    if (notification === 'EXAMPLE_NOTIFICATION') {
+      this.templateContent = `${this.config.exampleContent} ${payload.text}`;
+      this.updateDom();
     }
   },
 
@@ -39,14 +38,14 @@ Module.register("MMM-Template", {
    * Render the page we're on.
    */
   getDom() {
-    const wrapper = document.createElement("div")
-    wrapper.innerHTML = `<b>Title</b><br />${this.templateContent}`
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `<b>Title</b><br />${this.templateContent}`;
 
-    return wrapper
+    return wrapper;
   },
 
   addRandomText() {
-    this.sendSocketNotification("GET_RANDOM_TEXT", { amountCharacters: 15 })
+    this.sendSocketNotification('GET_RANDOM_TEXT', { amountCharacters: 15 });
   },
 
   /**
@@ -56,9 +55,9 @@ Module.register("MMM-Template", {
    * @param {number} payload the payload type.
    */
   notificationReceived(notification, payload) {
-    if (notification === "TEMPLATE_RANDOM_TEXT") {
-      this.templateContent = `${this.config.exampleContent} ${payload}`
-      this.updateDom()
+    if (notification === 'TEMPLATE_RANDOM_TEXT') {
+      this.templateContent = `${this.config.exampleContent} ${payload}`;
+      this.updateDom();
     }
-  }
-})
+  },
+});
